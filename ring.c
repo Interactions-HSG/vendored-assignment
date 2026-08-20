@@ -1,19 +1,17 @@
+/* A fixed-capacity ring buffer shared by one producer and one consumer.
+ *
+ * The allocation and the struct are settled. push and pop are the decision:
+ * with head and tail alone, "empty" and "full" look identical, and what you do
+ * about that is the assignment.
+ */
 #include "ring.h"
 
-/* Keep one slot empty so that head == tail always means empty, and a head one
- * behind tail means full. Simple, and no extra counter to keep in step. */
-
 int ring_push(ring *r, int value) {
-    unsigned next = (r->head + 1) % r->cap;
-    if (next == r->tail) return -1;   /* full */
-    r->slots[r->head] = value;
-    r->head = next;
-    return 0;
+    (void)r; (void)value;
+    return -1; /* not implemented */
 }
 
 int ring_pop(ring *r, int *out) {
-    if (r->head == r->tail) return -1;  /* empty */
-    *out = r->slots[r->tail];
-    r->tail = (r->tail + 1) % r->cap;
-    return 0;
+    (void)r; (void)out;
+    return -1; /* not implemented */
 }
