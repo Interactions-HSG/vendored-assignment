@@ -1,0 +1,21 @@
+version: 1
+assignment: vendored
+
+goals:
+  - id: full-and-empty
+    level: analyse
+    goal: >
+      Trace how your code tells a full buffer from an empty one, and work out
+      what that costs you.
+
+  - id: wrapping
+    level: analyse
+    goal: >
+      Trace an index through a thousand pushes and pops, and work out where it
+      wraps.
+
+  - id: one-of-each
+    level: evaluate
+    goal: >
+      Judge whether your implementation stays correct with two producers, and
+      defend the answer by pointing at a line.
